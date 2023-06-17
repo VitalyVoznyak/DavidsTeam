@@ -1,10 +1,20 @@
 package com.example.davidsteam
 
+import android.app.DownloadManager
+import android.content.Context
+import android.content.Context.DOWNLOAD_SERVICE
+import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.CookieManager
+import android.webkit.URLUtil
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.fragment.app.Fragment
+import com.example.davidsteam.databinding.FragmentMenuBinding
 
 
 private const val ARG_PARAM1 = "param1"
@@ -12,6 +22,8 @@ private const val ARG_PARAM2 = "param2"
 
 
 class MenuFragment : Fragment() {
+    private lateinit var binding: FragmentMenuBinding
+
     private var param1: String? = null
     private var param2: String? = null
 
@@ -26,9 +38,18 @@ class MenuFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_menu, container, false)
+        binding = FragmentMenuBinding.inflate(inflater,container,false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.bassButton.setOnClickListener(){
+
+
+        }
     }
 
     companion object {
