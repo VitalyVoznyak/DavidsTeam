@@ -1,7 +1,9 @@
 package com.example.davidsteam.domain.repository
 
-import com.example.davidsteam.domain.entity.Message
+import androidx.lifecycle.LiveData
+import com.example.davidsteam.domain.entity.Instrument
+import com.example.davidsteam.domain.entity.Song
 
 interface Repository {
-    fun getAllMessages():List<Message>
+    fun loadSongListUseCase(instrument: Instrument): LiveData<List<Song>>
 }

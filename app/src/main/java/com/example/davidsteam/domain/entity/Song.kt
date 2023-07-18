@@ -1,7 +1,8 @@
 package com.example.davidsteam.domain.entity
 
-class User(
-    val id: Int,
+class Song(
     val name: String,
-    val online: Boolean
-)
+    val imageUrl: String
+) {
+
+}
