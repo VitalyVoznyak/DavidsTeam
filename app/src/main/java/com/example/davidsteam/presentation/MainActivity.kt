@@ -1,4 +1,4 @@
-package com.example.davidsteam
+package com.example.davidsteam.presentation
 
 import android.app.DownloadManager
 import android.net.Uri
@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.webkit.CookieManager
 import android.webkit.URLUtil
-import androidx.core.content.ContextCompat
+import com.example.davidsteam.R
 import com.example.davidsteam.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +18,10 @@ class MainActivity : AppCompatActivity() {
 
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_menu_container,MenuFragment.newInstance("",""))
+            .replace(R.id.fragment_menu_container, MenuFragment.newInstance("", ""))
+            .commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_song_list_container, SongListFragment.newInstance())
             .commit()
 
         //val url = "https://africau.edu/images/default/sample.pdf"

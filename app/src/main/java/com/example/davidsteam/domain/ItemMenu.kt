@@ -1,4 +1,4 @@
-package com.example.davidsteam
+package com.example.davidsteam.domain
 
 import androidx.annotation.DrawableRes
 

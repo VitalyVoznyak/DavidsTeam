@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".MenuFragment">
+    tools:context=".presentation.MenuFragment">
 
     <LinearLayout
         android:layout_width="96dp"
@@ -68,6 +68,4 @@
             android:src="@drawable/micro_logo" />
 
     </LinearLayout>
-
-
 </ScrollView>
