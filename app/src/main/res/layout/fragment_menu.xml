@@ -7,14 +7,14 @@
     tools:context=".presentation.MenuFragment">
 
     <LinearLayout
-        android:layout_width="96dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
 
         <ImageButton
             style="@style/Widget.AppCompat.ImageButton"
-            android:layout_width="96dp"
+            android:layout_width="wrap_content"
             android:layout_height="96dp"
             android:layout_marginVertical="8dp"
             android:background="@color/black"
@@ -23,7 +23,7 @@
 
         <ImageButton
             style="@style/Widget.AppCompat.ImageButton"
-            android:layout_width="96dp"
+            android:layout_width="wrap_content"
             android:layout_height="96dp"
             android:layout_marginVertical="8dp"
             android:background="@color/black"
@@ -32,7 +32,7 @@
 
         <ImageButton
             style="@style/Widget.AppCompat.ImageButton"
-            android:layout_width="96dp"
+            android:layout_width="wrap_content"
             android:layout_height="96dp"
             android:layout_marginVertical="8dp"
             android:background="@color/black"
@@ -42,7 +42,7 @@
         <ImageButton
             style="@style/Widget.AppCompat.ImageButton"
             android:id="@+id/bassButton"
-            android:layout_width="96dp"
+            android:layout_width="wrap_content"
             android:layout_height="96dp"
             android:layout_marginVertical="8dp"
             android:background="@color/black"
@@ -51,7 +51,7 @@
 
         <ImageButton
             style="@style/Widget.AppCompat.ImageButton"
-            android:layout_width="96dp"
+            android:layout_width="wrap_content"
             android:layout_height="96dp"
             android:layout_marginVertical="8dp"
             android:background="@color/black"
@@ -60,7 +60,7 @@
 
         <ImageButton
             style="@style/Widget.AppCompat.ImageButton"
-            android:layout_width="96dp"
+            android:layout_width="wrap_content"
             android:layout_height="96dp"
             android:layout_marginVertical="8dp"
             android:background="@color/black"
