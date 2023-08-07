@@ -7,12 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.davidsteam.R
+import com.example.davidsteam.domain.entity.Instrument
 
 class SongListFragment : Fragment() {
 
     companion object {
         fun newInstance() = SongListFragment()
     }
+
 
     private lateinit var viewModel: SongListViewModel
 
@@ -26,7 +28,8 @@ class SongListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(SongListViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel.loadSongList(instrument = Instrument.BASS)
     }
+    fun loadSongList() {}
 
 }

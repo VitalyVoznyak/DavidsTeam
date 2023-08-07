@@ -5,5 +5,5 @@ import com.example.davidsteam.domain.entity.Instrument
 import com.example.davidsteam.domain.entity.Song
 
 interface Repository {
-    fun loadSongListUseCase(instrument: Instrument): LiveData<List<Song>>
+    fun loadSongList(instrument: Instrument): LiveData<List<Song>>
 }

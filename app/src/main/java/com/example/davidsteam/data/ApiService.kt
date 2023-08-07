@@ -7,8 +7,9 @@ import retrofit2.http.Query
 
 
 interface ApiService {
-    @GET("top/totalvolfull")
+    @GET("Songs.json")
     fun getAllSongs(): SongListDto
+
 
 
 //    @GET("pricemultifull")
@@ -18,13 +19,5 @@ interface ApiService {
 //        @Query(QUERY_PARAM_TO_SYMBOLS) tSyms: String = CURRENCY,
 //    )//: Single<CoinPriceInfoRawData>
 
-    companion object {
-        private const val QUERY_PARAM_API_KEY = "api_key"
-        private const val QUERY_PARAM_LIMIT = "limit"
-        private const val QUERY_PARAM_TO_SYMBOL = "tsym"
 
-        private const val QUERY_PARAM_TO_SYMBOLS = "tsyms"
-        private const val QUERY_PARAM_FROM_SYMBOLS = "fsyms"
-        private const val CURRENCY = "USD"
-    }
 }
