@@ -20,11 +20,11 @@ class SongListFragment : Fragment()   {
     companion object {
         fun newInstance() = SongListFragment()
     }
-    var activity: MainActivity? = null
+
     @Inject
     lateinit var viewModelFactory: SongListViewModelFactory
 
-    private val viewModel by lazy {
+    val viewModel by lazy {
         ViewModelProvider(this,viewModelFactory)[SongListViewModel::class.java]
     }
 
@@ -37,7 +37,7 @@ class SongListFragment : Fragment()   {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        activity?.let { DaggerApplicationComponent.create().inject(it) }
+        DaggerApplicationComponent.create().inject(this)
 
         viewModel.liveData.observe(viewLifecycleOwner){ songs ->
             songs.forEach{ Log.d("Tester",it.toString()) }

@@ -11,14 +11,18 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import javax.inject.Inject
 
-class RepositoryImpl @Inject constructor() : Repository {
+class RepositoryImpl @Inject constructor(val songsMapper: SongsMapper) : Repository {
+
+
+
     override suspend fun loadSongList(instrument: Instrument): LiveData<List<Song>> {
         val songList = CoroutineScope(Dispatchers.Default).async {
 
             val songList = ApiFactory.apiService.getAllSongs()
             songList
         }
-        return SongsMapper().mapSongListDtoToLiveDataListSongs(songList.await())
+
+        return songsMapper.mapSongListDtoToLiveDataListSongs(songList.await())
 
     }
 }

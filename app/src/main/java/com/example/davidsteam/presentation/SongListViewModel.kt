@@ -10,18 +10,15 @@ import com.example.davidsteam.domain.usecases.LoadSongListUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class SongListViewModel @Inject constructor( loadSongListUseCase: LoadSongListUseCase) :  ViewModel(){
+class SongListViewModel @Inject constructor(val loadSongListUseCase: LoadSongListUseCase) :  ViewModel(){
 
     var liveData: MutableLiveData<List<Song>> = MutableLiveData<List<Song>>()
 
-    @Inject
-    lateinit var loadSongListUseCase: LoadSongListUseCase
     fun loadSongList(instrument: Instrument) {
 
 
         viewModelScope.launch {
             liveData.value = loadSongListUseCase.loadSongListUseCase(instrument).value
         }
-
     }
 }

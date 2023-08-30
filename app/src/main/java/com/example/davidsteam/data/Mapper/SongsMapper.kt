@@ -8,20 +8,24 @@ import com.example.davidsteam.domain.entity.Song
 import kotlinx.coroutines.Deferred
 import java.util.Locale
 import java.util.TimeZone
+import javax.inject.Inject
 
-class SongsMapper {
-    fun mapSongListDtoToLiveDataListSongs(songListDto: SongListDto): LiveData<List<Song>> {
-        val listSongsDto = songListDto.data
-        val listSongs: List<Song> = listSongsDto.map { it: SongDto ->
-            Song(
-                it.name,
-                it.haveAG,
-                it.haveBASS,
-                it.haveEG,
-                it.havePIANO,
-                it.haveDRUMS
-            )
-        }
+class SongsMapper @Inject constructor(){
+    suspend fun mapSongListDtoToLiveDataListSongs(songListDto: SongListDto): LiveData<List<Song>> {
+        val listSongsDto = songListDto.songs
+        val listSongs: List<Song> = listSongsDto?.let {
+            it.map { it: Song ->
+                Song(
+                    it.name,
+                    it.haveAG,
+                    it.haveBASS,
+                    it.haveEG,
+                    it.havePIANO,
+                    it.haveDRUMS
+                )
+
+            }
+        }!!
         return MutableLiveData(listSongs)
     }
 }

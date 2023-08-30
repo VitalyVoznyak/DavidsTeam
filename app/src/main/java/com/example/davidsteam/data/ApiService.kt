@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface ApiService {
     @GET("Songs.json")
-    fun getAllSongs(): SongListDto
+    suspend fun getAllSongs(): SongListDto
 
 
 

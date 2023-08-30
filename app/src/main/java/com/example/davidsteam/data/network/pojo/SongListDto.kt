@@ -1,10 +1,13 @@
 package com.example.davidsteam.data.network.pojo
 
+import com.example.davidsteam.domain.entity.Song
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class SongListDto(
-    @SerializedName("Songs")
+
+class SongListDto {
+    @SerializedName("songs")
     @Expose
-    val data: List<SongDto>
-)
+    var songs: List<Song>? = null
+}
+
