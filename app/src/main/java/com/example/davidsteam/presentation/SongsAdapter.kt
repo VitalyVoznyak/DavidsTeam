@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.davidsteam.databinding.ItemSongBinding
 import com.example.davidsteam.domain.entity.Song
 import com.squareup.picasso.Picasso
+import javax.inject.Inject
 
-class SongsAdapter (private val context: Context): RecyclerView.Adapter<SongsViewHolder>() {
+class SongsAdapter @Inject constructor (): RecyclerView.Adapter<SongsViewHolder>() {
 
-    var songList: List<Song> = listOf()
+    var songList = listOf<Song>()
         set(value){
             field = value
             notifyDataSetChanged()
@@ -27,11 +28,12 @@ class SongsAdapter (private val context: Context): RecyclerView.Adapter<SongsVie
 
     override fun onBindViewHolder(holder: SongsViewHolder, position: Int) {
         val song = songList[position]
-        //Picasso.get().load(song.imageUrl).into(holder.binding.songImage)
-        holder.binding.songName.text = song.name
+
+        with(holder.binding){
+            songName.text = song.name
+            //Picasso.get().load(song.imageUrl).into(it.songImage)
+        }
     }
 
-    override fun getItemCount(): Int {
-        return songList.size
-    }
+    override fun getItemCount() = songList.size
 }
