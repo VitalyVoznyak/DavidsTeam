@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.davidsteam.databinding.FragmentSongListBinding
 import com.example.davidsteam.databinding.ItemSongBinding
 import com.example.davidsteam.domain.entity.Song
 import com.squareup.picasso.Picasso
@@ -28,7 +27,7 @@ class SongsAdapter (private val context: Context): RecyclerView.Adapter<SongsVie
 
     override fun onBindViewHolder(holder: SongsViewHolder, position: Int) {
         val song = songList[position]
-        Picasso.get().load(song.imageUrl).into(holder.binding.songImage)
+        //Picasso.get().load(song.imageUrl).into(holder.binding.songImage)
         holder.binding.songName.text = song.name
     }
 

@@ -16,13 +16,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val songListFragment = SongListFragment.newInstance()
+        songListFragment.activity = this
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_menu_container, MenuFragment.newInstance("", ""))
             .commit()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_song_list_container, SongListFragment.newInstance())
+            .replace(R.id.fragment_song_list_container, songListFragment)
             .commit()
+
 
 
 //        Thread{

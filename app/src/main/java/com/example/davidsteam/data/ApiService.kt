@@ -1,9 +1,7 @@
 package com.example.davidsteam.data
 
-import com.example.davidsteam.data.network.model.SongListDto
-import io.reactivex.rxjava3.core.Single
+import com.example.davidsteam.data.network.pojo.SongListDto
 import retrofit2.http.GET
-import retrofit2.http.Query
 
 
 interface ApiService {

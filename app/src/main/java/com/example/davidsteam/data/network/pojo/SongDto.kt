@@ -1,9 +1,10 @@
-package com.example.davidsteam.domain.entity
+package com.example.davidsteam.data.network.pojo
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-data class Song(
-
+data class SongDto(
+    @SerializedName("Song")
+    @Expose
     var name:String,
     var haveAG:Boolean,
     var haveBASS:Boolean,
@@ -12,7 +13,7 @@ data class Song(
     var haveDRUMS:Boolean
 ) {
     override fun toString(): String {
-        return "Song(name='$name', haveAG=$haveAG, haveBASS=$haveBASS, haveEG=$haveEG, havePIANO=$havePIANO, haveDRUMS=$haveDRUMS)"
+        return super.toString()
     }
 }
 

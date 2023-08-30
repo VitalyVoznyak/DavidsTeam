@@ -1,22 +1,32 @@
 package com.example.davidsteam.presentation
 
+import android.app.Application
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.os.Debug
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.davidsteam.R
+import com.example.davidsteam.di.ApplicationComponent
+import com.example.davidsteam.di.DaggerApplicationComponent
 import com.example.davidsteam.domain.entity.Instrument
+import javax.inject.Inject
 
-class SongListFragment : Fragment() {
+class SongListFragment : Fragment()   {
 
     companion object {
         fun newInstance() = SongListFragment()
     }
+    var activity: MainActivity? = null
+    @Inject
+    lateinit var viewModelFactory: SongListViewModelFactory
 
-
-    private lateinit var viewModel: SongListViewModel
+    private val viewModel by lazy {
+        ViewModelProvider(this,viewModelFactory)[SongListViewModel::class.java]
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,9 +37,12 @@ class SongListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SongListViewModel::class.java)
+        activity?.let { DaggerApplicationComponent.create().inject(it) }
+
+        viewModel.liveData.observe(viewLifecycleOwner){ songs ->
+            songs.forEach{ Log.d("Tester",it.toString()) }
+        }
         viewModel.loadSongList(instrument = Instrument.BASS)
     }
-    fun loadSongList() {}
 
 }
