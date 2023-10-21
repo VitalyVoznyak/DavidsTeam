@@ -1,4 +1,4 @@
-package com.example.davidsteam.data
+package com.example.davidsteam.data.network
 
 import com.example.davidsteam.data.network.pojo.SongListDto
 import retrofit2.http.GET

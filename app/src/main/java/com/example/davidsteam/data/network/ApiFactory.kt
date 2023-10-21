@@ -1,4 +1,4 @@
-package com.example.davidsteam.data
+package com.example.davidsteam.data.network
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

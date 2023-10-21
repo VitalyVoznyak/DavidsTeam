@@ -1,6 +1,7 @@
 package com.example.davidsteam.presentation
 
 import android.app.Application
+import android.app.DownloadManager
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.os.Debug
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import com.example.davidsteam.R
 import com.example.davidsteam.databinding.FragmentSongListBinding
 import com.example.davidsteam.di.ApplicationComponent
@@ -20,8 +22,10 @@ class SongListFragment : Fragment() {
 
     companion object {
         fun newInstance() = SongListFragment()
+        const val EXTRA_INSTRUMENT = "INSTRUMENT"
     }
 
+    lateinit var downloadManager: DownloadManager
     private lateinit var binding: FragmentSongListBinding
 
     @Inject
@@ -50,7 +54,11 @@ class SongListFragment : Fragment() {
         viewModel.liveData.observe(viewLifecycleOwner) { songs ->
             songs.forEach { Log.d("Tester", it.toString()) }
             songsAdapter.songList = songs
+            songsAdapter.currentInstrument = arguments?.getSerializable(EXTRA_INSTRUMENT) as Instrument
+            songsAdapter.downloadManager = downloadManager
         }
         viewModel.loadSongList(instrument = Instrument.BASS)
+
     }
+
 }

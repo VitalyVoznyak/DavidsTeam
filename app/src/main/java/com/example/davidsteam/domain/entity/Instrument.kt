@@ -1,5 +1,8 @@
 package com.example.davidsteam.domain.entity
 
-enum class Instrument {
-    ACOUSTIC,ELECTRO,BASS,PIANO,DRUMS,VOCAL
+import java.io.Serializable
+
+
+enum class Instrument : Serializable {
+    ACOUSTIC,ELECTRO,BASS,PIANO,DRUMS
 }
